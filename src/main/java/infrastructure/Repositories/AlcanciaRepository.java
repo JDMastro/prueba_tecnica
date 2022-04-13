@@ -13,12 +13,14 @@ public class AlcanciaRepository implements IAlcanciaRepository {
 
     private int ObtenerLaCantidadDeDineroEnLaAlcancia()
     {
+        cantidadDeDinero = 0;
         Alcancia.forEach((n) -> cantidadDeDinero+= n.getMoneda() );
         return cantidadDeDinero;
     }
 
     private int ObtenerLaCantidadDeDineroEnLaAlcanciaPorDenominacion(int moneda)
     {
+        cantidadDeDineroPorDenominacion = 0;
         Alcancia.forEach((n) -> {
             if(n.getMoneda() == moneda)
                 cantidadDeDineroPorDenominacion+=n.getMoneda();
@@ -28,24 +30,12 @@ public class AlcanciaRepository implements IAlcanciaRepository {
 
     private int ObtenerLaCantidadDeMonedaEnLaAlcanciaPorDenominacion(int moneda)
     {
+        cantidadDeMonedaPorDenominacion = 0;
         Alcancia.forEach((n) -> {
             if(n.getMoneda() == moneda)
                 cantidadDeMonedaPorDenominacion++;
         });
         return cantidadDeMonedaPorDenominacion;
-    }
-    /*private int ObtenerLaCantidadDeMonedaEnLaAlcanciaPorDenominacion(int moneda)
-    {
-        Alcancia.forEach((n) -> {
-            if(n.getMoneda() == moneda)
-                cantidadDeMonedaPorDenominacion+=n.getMoneda();
-        });
-        return cantidadDeMonedaPorDenominacion;
-    }*/
-
-    @Override
-    public ArrayList<Alcancia> GetAlcancia() {
-        return Alcancia;
     }
 
 

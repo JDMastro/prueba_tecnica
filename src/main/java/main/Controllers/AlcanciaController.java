@@ -12,10 +12,6 @@ public class AlcanciaController {
         _alcanciaRepository = alcanciaRepository;
     }
 
-    public ArrayList<Alcancia> GetAlcancia ()
-    {
-        return _alcanciaRepository.GetAlcancia();
-    }
 
     public void AddAddMoneda (int moneda)
     {

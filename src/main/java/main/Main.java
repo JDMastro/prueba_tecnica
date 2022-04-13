@@ -1,7 +1,12 @@
 package main;
 
+import main.Controllers.AlcanciaController;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("HOLA MUNDO ;)");
+        AlcanciaController alcanciaController = new AlcanciaController();
+
+        alcanciaController.GetAlcancia().forEach((n) -> System.out.println(n.getMoneda()));
+        //System.out.println(alcanciaController.GetAlcancia());
     }
 }

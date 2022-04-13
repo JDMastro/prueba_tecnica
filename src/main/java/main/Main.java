@@ -10,15 +10,24 @@ public class Main {
 
         alcanciaController.AddAddMoneda(100);
         alcanciaController.AddAddMoneda(200);
-        alcanciaController.AddAddMoneda(300);
-        alcanciaController.AddAddMoneda(400);
+        alcanciaController.AddAddMoneda(200);
         alcanciaController.AddAddMoneda(500);
-        alcanciaController.AddAddMoneda(600);
-        alcanciaController.AddAddMoneda(700);
-        alcanciaController.AddAddMoneda(800);
+        alcanciaController.AddAddMoneda(500);
+        alcanciaController.AddAddMoneda(500);
+        alcanciaController.AddAddMoneda(500);
 
 
         alcanciaController.GetAlcancia().forEach((n) -> System.out.println(n.getMoneda()));
+
+        System.out.println("Cantidad de monedas : "+ alcanciaController.CantidadDeMonedasEnlaAlcancia());
+
+        System.out.println("Dinero Total : "+ alcanciaController.DineroTotalEnLaAlcancia());
+
+        System.out.println("Cantidad de monedas por denominacion : "+ alcanciaController.CantidadDeMonedasEnlaAlcanciaPorDenominacion(100));
+
+        System.out.println("Dinero total por denominacion : "+ alcanciaController.DineroTotalEnLaAlcanciaPorDenominacion(500));
+
+
         //System.out.println(alcanciaController.GetAlcancia());
     }
 }

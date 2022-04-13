@@ -7,9 +7,19 @@ import java.util.ArrayList;
 
 public class AlcanciaController {
 
+    private AlcanciaRepository _alcanciaRepository;
+    public AlcanciaController(AlcanciaRepository alcanciaRepository) {
+        _alcanciaRepository = alcanciaRepository;
+    }
+
     public ArrayList<Alcancia> GetAlcancia ()
     {
-        return new AlcanciaRepository().GetAlcancia();
+        return _alcanciaRepository.GetAlcancia();
+    }
+
+    public void AddAddMoneda (int moneda)
+    {
+        _alcanciaRepository.AddMoneda(moneda);
     }
 
 }

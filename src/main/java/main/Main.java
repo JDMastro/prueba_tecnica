@@ -14,7 +14,6 @@ public class Main {
         main.StartMenu();
     }
 
-
     public void StartMenu()
     {
         Scanner opcionPorConsola = new Scanner(System.in);

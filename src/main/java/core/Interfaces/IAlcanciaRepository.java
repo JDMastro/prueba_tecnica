@@ -12,4 +12,5 @@ public interface IAlcanciaRepository {
     int CantidadDeMonedasEnlaAlcanciaPorDenominacion(int moneda);
 
     int DineroTotalEnLaAlcanciaPorDenominacion(int moneda);
+
 }

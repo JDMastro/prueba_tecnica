@@ -1,21 +1,29 @@
 package main.Controllers;
 
-import core.Entities.Alcancia;
+import core.Exceptions.MonedaValidacion;
 import infrastructure.Repositories.AlcanciaRepository;
+import infrastructure.Repositories.MonedaRepository;
 
-import java.util.ArrayList;
 
 public class AlcanciaController {
 
     private AlcanciaRepository _alcanciaRepository;
+    private MonedaRepository _monedaRepository;
     public AlcanciaController(AlcanciaRepository alcanciaRepository) {
-        _alcanciaRepository = alcanciaRepository;
-    }
 
+        _alcanciaRepository = alcanciaRepository;
+        _monedaRepository = new MonedaRepository();
+    }
 
     public void AddAddMoneda (int moneda)
     {
-        _alcanciaRepository.AddMoneda(moneda);
+        try {
+            _monedaRepository.VerificarMoneda(moneda);
+            _alcanciaRepository.AddMoneda(moneda);
+        } catch (MonedaValidacion e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public int CantidadDeMonedasEnlaAlcancia() {
@@ -27,11 +35,22 @@ public class AlcanciaController {
     }
 
     public int CantidadDeMonedasEnlaAlcanciaPorDenominacion(int moneda) {
-        return _alcanciaRepository.CantidadDeMonedasEnlaAlcanciaPorDenominacion(moneda);
+        try {
+            _monedaRepository.VerificarMoneda(moneda);
+            return _alcanciaRepository.CantidadDeMonedasEnlaAlcanciaPorDenominacion(moneda);
+        } catch (MonedaValidacion e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
-
     public int DineroTotalEnLaAlcanciaPorDenominacion(int moneda) {
-        return _alcanciaRepository.DineroTotalEnLaAlcanciaPorDenominacion(moneda);
+        try {
+            _monedaRepository.VerificarMoneda(moneda);
+            return _alcanciaRepository.DineroTotalEnLaAlcanciaPorDenominacion(moneda);
+        } catch (MonedaValidacion e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class AlcanciaRepository implements IAlcanciaRepository {
     private ArrayList<Alcancia> Alcancia = new ArrayList<>();
+
     private int cantidadDeDinero = 0;
     private int cantidadDeMonedaPorDenominacion = 0;
     private int cantidadDeDineroPorDenominacion = 0;
@@ -37,7 +38,6 @@ public class AlcanciaRepository implements IAlcanciaRepository {
         });
         return cantidadDeMonedaPorDenominacion;
     }
-
 
     @Override
     public void AddMoneda(int moneda) {
